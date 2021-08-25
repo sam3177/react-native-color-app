@@ -4,11 +4,11 @@ import { View, Text, StyleSheet, FlatList } from 'react-native';
 import ColorBox from '../components/ColorBox';
 
 const ColorPalette = ({ route }) => {
-	const { colors, name } = route.params;
+	const { colors, paletteName } = route.params;
 	return (
 		<View style={styles.container}>
 			<Text style={[ styles.text, styles.title ]}>
-				{name.replace('_', ' ')}
+				{paletteName.replace('_', ' ')}
 			</Text>
 			<View style={styles.colorBoxContainer}>
 				<FlatList 

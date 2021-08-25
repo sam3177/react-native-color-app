@@ -8,23 +8,24 @@ import {
 } from 'react-native';
 import ColorSquare from './ColorSquare';
 
-const PaletteTouchable = ({ name, colors, navigation }) => {
+const PaletteTouchable = ({ paletteName, colors, navigation }) => {
 	return (
 		<View>
 			<TouchableOpacity
 				style={styles.touchableSection}
 				onPress={() =>
 					navigation.navigate('Palette', {
-						name,
+						paletteName,
 						colors,
 					})}
 			>
-				<Text style={styles.text}>{name.replace('_', ' ')}</Text>
+				<Text style={styles.text}>
+					{paletteName.replace('_', ' ')}
+				</Text>
 				<View>
 					<FlatList
 						style={styles.boxContainer}
-						data={colors.slice(0,5)}
-						numColumns={5}
+						data={colors.slice(0, 5)}
 						renderItem={(colors) => <ColorSquare {...colors.item} />}
 						keyExtractor={(color) => color.hexCode}
 						ListEmptyComponent={<Text>List is empty, so what?</Text>}
